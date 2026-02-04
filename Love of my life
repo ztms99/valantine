@@ -1,0 +1,47 @@
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+let yesScale = 1;
+
+let noTexts = [
+  "No 😢",
+  "Are you sure? 🥺",
+  "Really?? 😭",
+  "Think again 😳",
+  "Come on 😔",
+  "That hurts 💔",
+  "Please don’t 😭",
+  "Why are you like this 😩",
+  "My heart can’t take this 💔",
+  "You’re still pressing no?? 😳",
+  "This is emotional damage 😵",
+  "I’m literally begging now 😭",
+  "How are you so strong 😶",
+  "Okay… one more chance 🥲",
+  "PLEASEEE 😭❤️"
+];
+
+let noClickCount = 0;
+
+noBtn.addEventListener("click", () => {
+  // YES button gets bigger every time
+  yesScale += 0.25;
+  yesBtn.style.transform = `scale(${yesScale})`;
+
+  // Change NO button text
+  if (noClickCount < noTexts.length) {
+    noBtn.textContent = noTexts[noClickCount];
+    noClickCount++;
+  } else {
+    noBtn.textContent = "Please ;-;";
+  }
+});
+
+yesBtn.addEventListener("click", () => {
+  document.body.innerHTML = `
+    <div style="text-align:center;">
+      <h1>YAYYYY 💘</h1>
+      <p>You chose correctly 😌❤️</p>
+    </div>
+  `;
+});
