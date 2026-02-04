@@ -1,47 +1,247 @@
-const noBtn = document.getElementById("no");
-const yesBtn = document.getElementById("yes");
-
-let yesScale = 1;
-
-let noTexts = [
-  "No 😢",
-  "Are you sure? 🥺",
-  "Really?? 😭",
-  "Think again 😳",
-  "Come on 😔",
-  "That hurts 💔",
-  "Please don’t 😭",
-  "Why are you like this 😩",
-  "My heart can’t take this 💔",
-  "You’re still pressing no?? 😳",
-  "This is emotional damage 😵",
-  "I’m literally begging now 😭",
-  "How are you so strong 😶",
-  "Okay… one more chance 🥲",
-  "PLEASEEE 😭❤️"
-];
-
-let noClickCount = 0;
-
-noBtn.addEventListener("click", () => {
-  // YES button gets bigger every time
-  yesScale += 0.25;
-  yesBtn.style.transform = `scale(${yesScale})`;
-
-  // Change NO button text
-  if (noClickCount < noTexts.length) {
-    noBtn.textContent = noTexts[noClickCount];
-    noClickCount++;
-  } else {
-    noBtn.textContent = "Please ;-;";
-  }
-});
-
-yesBtn.addEventListener("click", () => {
-  document.body.innerHTML = `
-    <div style="text-align:center;">
-      <h1>YAYYYY 💘</h1>
-      <p>You chose correctly 😌❤️</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Question 💘</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #ffafcc, #ffc8dd);
+            text-align: center;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        
+        h1 {
+            color: #ff477e;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            min-height: 120px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: absolute;
+        }
+        
+        #yes {
+            background-color: #ff477e;
+            color: white;
+            position: static;
+            transform-origin: center;
+        }
+        
+        #yes:hover {
+            background-color: #ff2e63;
+            transform: scale(1.05);
+        }
+        
+        #no {
+            background-color: #cdb4db;
+            color: white;
+            z-index: 1;
+        }
+        
+        #no:hover {
+            background-color: #b8a0d0;
+        }
+        
+        .heart {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            min-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">💝</div>
+        <h1>Will you be my Valentine? 💘</h1>
+        <p>Choose wisely... 😉</p>
+        
+        <div class="buttons">
+            <button id="yes">Yes! 💖</button>
+            <div class="button-container">
+                <button id="no">No 😢</button>
+            </div>
+        </div>
     </div>
-  `;
-});
+
+    <script>
+        const noBtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+
+        let yesScale = 1;
+
+        let noTexts = [
+            "No 😢",
+            "Are you sure? 🥺",
+            "Really?? 😭",
+            "Think again 😳",
+            "Come on 😔",
+            "That hurts 💔",
+            "Please don't 😭",
+            "Why are you like this 😩",
+            "My heart can't take this 💔",
+            "You're still pressing no?? 😳",
+            "This is emotional damage 😵",
+            "I'm literally begging now 😭",
+            "How are you so strong 😶",
+            "Okay… one more chance 🥲",
+            "PLEASEEE 😭❤️",
+            "I'll cry forever 😭😭",
+            "My soul is leaving my body 💀",
+            "This is actually illegal 🚓",
+            "I'm calling 911 🚨",
+            "My disappointment is immeasurable 😞",
+            "And my day is ruined 🌧️",
+            "I'm writing a sad poem 📝",
+            "Tears on my keyboard 💧⌨️",
+            "You monster 👹",
+            "I believed in us 😔",
+            "The audacity 😤",
+            "My poor heart 💔",
+            "I'm not giving up! 😤",
+            "You can't resist forever 😏",
+            "I have infinite patience ⏳",
+            "This is getting silly 🤡",
+            "Okay you win... NOT 😜",
+            "Just kidding, try again 😉",
+            "I see you're committed 😅",
+            "Alright, I respect it 🤝",
+            "But still... please? 🥺",
+            "Last chance... maybe 👀",
+            "I'm running out of texts 📱",
+            "This is the final final one ✨",
+            "Okay for real now 😐"
+        ];
+
+        let noClickCount = 0;
+
+        noBtn.addEventListener("click", () => {
+            // YES button gets bigger every time
+            yesScale += 0.25;
+            yesBtn.style.transform = `scale(${yesScale})`;
+
+            // Change NO button text
+            if (noClickCount < noTexts.length) {
+                noBtn.textContent = noTexts[noClickCount];
+                noClickCount++;
+            } else {
+                // Once all texts are used, loop back to "Please ;-;"
+                noBtn.textContent = "Please ;-;";
+            }
+            
+            // Move NO button to random position
+            const container = document.querySelector('.buttons');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            
+            // Make sure button stays within bounds
+            const maxX = containerRect.width - btnRect.width - 20;
+            const maxY = containerRect.height - btnRect.height - 20;
+            
+            // Generate random position within container
+            const randomX = Math.max(0, Math.random() * maxX);
+            const randomY = Math.max(0, Math.random() * maxY);
+            
+            // Apply position with smooth transition
+            noBtn.style.transition = 'left 0.3s, top 0.3s';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+            
+            // Make button smaller as punishment (optional)
+            const shrinkAmount = Math.max(0.5, 1 - (noClickCount * 0.02));
+            noBtn.style.transform = `scale(${shrinkAmount})`;
+        });
+
+        yesBtn.addEventListener("click", () => {
+            document.body.innerHTML = `
+                <div style="
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background: linear-gradient(45deg, #ffafcc, #ffc8dd);
+                    color: #ff477e;
+                    animation: celebrate 2s infinite;
+                ">
+                    <style>
+                        @keyframes celebrate {
+                            0% { background: linear-gradient(45deg, #ffafcc, #ffc8dd); }
+                            50% { background: linear-gradient(45deg, #ffc8dd, #ffafcc); }
+                            100% { background: linear-gradient(45deg, #ffafcc, #ffc8dd); }
+                        }
+                    </style>
+                    <div style="
+                        background-color: white; 
+                        padding: 50px; 
+                        border-radius: 20px; 
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                        animation: pop 0.5s;
+                    ">
+                        <style>
+                            @keyframes pop {
+                                0% { transform: scale(0.5); opacity: 0; }
+                                100% { transform: scale(1); opacity: 1; }
+                            }
+                        </style>
+                        <div style="font-size: 4rem; margin-bottom: 20px; animation: bounce 1s infinite;">💖🎉🥰</div>
+                        <style>
+                            @keyframes bounce {
+                                0%, 100% { transform: translateY(0); }
+                                50% { transform: translateY(-10px); }
+                            }
+                        </style>
+                        <h1 style="font-size: 3rem; margin-bottom: 20px;">YAYYYY! YOU SAID YES! 💘</h1>
+                        <p style="font-size: 1.5rem; color: #555;">You chose correctly 😌❤️</p>
+                        <p style="font-size: 1.2rem; color: #888; margin-top: 10px;">After ${noClickCount} attempts... worth it! 😉</p>
+                        <p style="margin-top: 30px; font-size: 1.2rem; color: #888;">Refresh the page to try again! 💕</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
